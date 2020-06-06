@@ -9,22 +9,22 @@
   transition: all 0.6s ease-in-out;
 }
 .mobileSlider {
-  position: absolute;
+  position: fixed;
   background-color: #fff;
   width: 60%;
   height: 100%;
   padding-bottom: 0em;
   z-index: 10;
-  right: 0;
-  margin-right: 0;
-  margin-right: -800px;
+  right: -800px;
   padding-top: 15%;
   /* display: none; */
-  transition: margin-right 0.4s ease-in-out;
+  transition: right 0.4s ease-in-out;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .open {
-  margin-right: 0;
+  right: 0;
 }
 
 .navigationUlMob {
@@ -61,21 +61,23 @@
   color: black;
 }
 
-@media screen and (min-width: 480px) {
-  /* .mobileSlider {
-    padding-top: 1em;
-  } */
+@media only screen and (min-width: 480px) {
 }
 
-@media screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
+  .mobileSlider {
+    padding-top: 5%;
+    width: 50%;
+  }
+  .navigationUlMob {
+    margin-top: 20%;
+  }
+  .navigationLiMob {
+    padding-top: 8%;
+  }
 }
 
-@media screen and (min-width: 800px) {
-}
-@media screen and (min-width: 925px) {
-}
-
-@media screen and (min-width: 1025px) {
+@media only screen and (min-width: 992px) {
   .mobileSlider {
     display: none;
   }

@@ -1,7 +1,7 @@
 .logoDiv {
   position: absolute;
   top: 10%;
-  height: 12.5em;
+  height: 13em;
   width: 100%;
   padding: 0 10%;
   /* border: 1px solid black; */
@@ -10,4 +10,30 @@
 .logoDiv img {
   height: 100%;
   width: 100%;
+}
+
+@media only screen and (min-width: 480px) {
+  .logoDiv {
+    top: 14%;
+    height: 14em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .logoDiv {
+    top: 17%;
+    height: 18em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .logoDiv {
+    height: 10em;
+    width: 45%;
+    top: 0;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
 }

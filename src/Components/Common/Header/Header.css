@@ -1,6 +1,29 @@
 .header {
-  height: 17em;
+  height: 18em;
   width: 100%;
   /* border: 1px solid black; */
   /* background-color: red; */
+}
+
+@media only screen and (min-width: 480px) {
+  .header {
+    height: 20em;
+    /* border: 1px solid black; */
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    height: 24em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .header {
+    border: 1px solid black;
+    height: 15em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
 }

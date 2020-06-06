@@ -10,17 +10,17 @@ const DesktopNavigation = (props) => {
             <a href="#">Home</a>
           </li>
           <li className="navigationLi">
-            <a href="#">About</a>
+            <a href="#">Kadli</a>
           </li>
           <li className="navigationLi">
-            <a href="#">Skills</a>
+            <a href="#">Lucky</a>
+          </li>
+          <li className="navigationLi">
+            <a href="#">Kada</a>
           </li>
           <li className="navigationLi contactLi">
             <a href="/#">Contact</a>
           </li>
-          {/* <li className="CV">
-            
-          </li> */}
         </ul>
       </nav>
     </div>
