@@ -1,0 +1,32 @@
+.navButtonDiv {
+  top: 0%;
+  position: absolute;
+  font-size: 1.2em;
+  cursor: pointer;
+  width: 100%;
+  background-color: #f7f7f7;
+  z-index: 5;
+  padding: 4% 6% 4% 0;
+}
+
+.navButtonDiv ul {
+  list-style-type: none;
+}
+
+.navButton {
+  float: right;
+  color: #fff;
+  color: black;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.navButton i {
+  margin-right: 0.4em;
+}
+
+@media screen and (min-width: 1025px) {
+  .navButtonDiv {
+    display: none;
+  }
+}

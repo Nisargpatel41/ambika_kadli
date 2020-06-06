@@ -1,0 +1,13 @@
+.logoDiv {
+  position: absolute;
+  top: 10%;
+  height: 12.5em;
+  width: 100%;
+  padding: 0 10%;
+  /* border: 1px solid black; */
+}
+
+.logoDiv img {
+  height: 100%;
+  width: 100%;
+}
