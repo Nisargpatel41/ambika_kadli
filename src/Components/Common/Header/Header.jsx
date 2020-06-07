@@ -3,12 +3,15 @@ import Logo from "./Logo/Logo";
 import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigation";
 import NavButton from "./Navigation/MobileNavigation/NavButton";
 import MobileNavLinks from "./Navigation/MobileNavigation/MobileNavLinks";
+import ProductsDropdown from "./Navigation/DesktopNavigation/ProductsDropdown";
 import "./Header.css";
 
 class Header extends Component {
   state = {
     isSliderOpen: false,
     scrolled: false,
+    isCollapseOpen: false,
+    productsModalOpen: false,
   };
 
   componentDidMount() {
@@ -33,15 +36,38 @@ class Header extends Component {
     this.setState({ isSliderOpen: false });
   };
 
+  collapseToggler = () => {
+    this.setState({ isCollapseOpen: !this.state.isCollapseOpen });
+  };
+
+  productsDropdownOpener = () => {
+    this.setState({ productsModalOpen: true });
+  };
+
+  productsDropdownCloser = () => {
+    this.setState({ productsModalOpen: false });
+  };
+
   render() {
     return (
       <div className={this.state.scrolled ? `scrolledHeader` : `header`}>
         <NavButton sliderOpener={this.sliderOpener} />
         <Logo />
-        <DesktopNavigation />
+        <DesktopNavigation
+          productsDropdownOpener={this.productsDropdownOpener}
+          productsDropdownCloser={this.productsDropdownCloser}
+          productsModalOpen={this.state.productsModalOpen}
+        />
+        <ProductsDropdown
+          productsModalOpen={this.state.productsModalOpen}
+          productsDropdownOpener={this.productsDropdownOpener}
+          productsDropdownCloser={this.productsDropdownCloser}
+        />
         <MobileNavLinks
           isSliderOpen={this.state.isSliderOpen}
           sliderCloser={this.sliderCloser}
+          isCollapseOpen={this.state.isCollapseOpen}
+          collapseToggler={this.collapseToggler}
         />
       </div>
     );

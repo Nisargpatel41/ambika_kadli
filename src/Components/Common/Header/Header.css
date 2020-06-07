@@ -20,8 +20,14 @@
 
 @media only screen and (min-width: 992px) {
   .header {
-    border: 1px solid black;
-    height: 15em;
+    /* border: 1px solid black; */
+    height: 12em;
+    padding: 0 7%;
+    background-color: #fff;
+    /* background-color: #f6cccd; */
+    /* background-color: #f9e0e1; */
+    background-color: #f7f7f7;
+    background: url(./bg_header.png) repeat center top;
   }
 }
 

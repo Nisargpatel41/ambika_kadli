@@ -3,10 +3,97 @@
 }
 
 @media only screen and (min-width: 992px) {
-  /* .navigationDiv {
+  .navigationDiv {
     display: block;
-  } */
-}
+    float: right;
+    width: 55%;
+  }
+  .top-header {
+    border-bottom: 1.5px solid #e5e5e5;
+    height: 7em;
+    margin: 0;
+    display: inline-flex;
+    padding-top: 5%;
+    width: 100%;
+  }
 
+  .headerMobileDiv,
+  .headerEmailDiv {
+    text-align: center;
+    padding: 0 8%;
+  }
+
+  .contactIconDiv {
+    font-size: 21px;
+    margin-bottom: 5%;
+    /* border: 1px solid #e5e5e5; */
+    /* border-radius: 30px; */
+    color: #444;
+    height: 1.7em;
+  }
+
+  .mobileContact {
+    font-size: 26px;
+  }
+
+  .headerContactText {
+    font-size: 1.1em;
+    letter-spacing: 1.1px;
+  }
+  .navigation {
+    width: 100%;
+    text-align: center;
+    padding-top: 4%;
+    /* margin-left: 16%; */
+  }
+  .navigationLi a,
+  .productBtn {
+    color: #444;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .navigationLi a:hover,
+  .productBtn:hover {
+    color: #4b46af;
+    color: #0075f6;
+  }
+
+  .navigationLi {
+    display: inline-flex;
+    /* margin-left: 7%; */
+    margin: 0 8%;
+    padding: 1%;
+  }
+
+  .navigationLi a,
+  .productBtn {
+    cursor: pointer;
+    text-decoration: none;
+    /* transition: all 0.1s ease-in-out; */
+  }
+  .productBtn {
+    border: none;
+    outline: 0;
+    background: transparent;
+    z-index: 1600;
+  }
+  .productBtn:focus {
+    outline: 0;
+  }
+
+  .caretDown {
+    margin-left: 4px;
+  }
+}
 @media only screen and (min-width: 1200px) {
+  .navigationDiv {
+    width: 56%;
+    padding-left: 5%;
+  }
+  .top-header {
+    padding-top: 4%;
+    padding-left: 9%;
+  }
 }

@@ -61,7 +61,35 @@
   color: black;
 }
 
+.productsContainer {
+  margin: 0;
+  padding: 0;
+}
+
+.products {
+  padding-left: 12%;
+}
+
+.productsLink {
+  display: inline-flex;
+}
+
+.plusIcon {
+  position: absolute;
+  right: 15%;
+  top: 17%;
+}
+
 @media only screen and (min-width: 480px) {
+  .mobileSlider {
+    padding-top: 10%;
+  }
+  .navigationUlMob {
+    margin-top: 20%;
+  }
+  .navigationLiMob {
+    padding-top: 12%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
