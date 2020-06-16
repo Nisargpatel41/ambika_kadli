@@ -1,0 +1,50 @@
+.adminLogoDiv {
+  position: absolute;
+  top: 10%;
+  height: 13em;
+  width: 100%;
+  padding: 0 10%;
+  /* border: 1px solid black; */
+}
+
+.adminLogoDiv img {
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (min-width: 480px) {
+  .adminLogoDiv {
+    top: 14%;
+    height: 14em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .adminLogoDiv {
+    top: 17%;
+    height: 18em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .adminLogoDiv {
+    height: 11em;
+    width: 30%;
+    top: 0;
+    padding: 0;
+    padding-top: 2%;
+    /* border: 1px solid black; */
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .adminLogoDiv {
+    height: 12em;
+    width: 25%;
+    top: 0;
+    padding: 0;
+    padding-right: 5%;
+    padding-top: 1%;
+    /* border: 1px solid black; */
+  }
+}

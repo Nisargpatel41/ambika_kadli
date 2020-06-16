@@ -1,0 +1,76 @@
+.adminNavigationDiv {
+  display: none;
+}
+
+@media only screen and (min-width: 992px) {
+  .adminNavigationDiv {
+    display: block;
+    float: right;
+    width: 55%;
+    /* border: 1px solid red; */
+  }
+
+  .adminNavigation {
+    width: 100%;
+    text-align: center;
+    padding-top: 4%;
+    /* margin-left: 16%; */
+    /* border: 1px solid yellow; */
+  }
+  .adminNavigationLi a,
+  .adminProductBtn {
+    color: #444;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .adminNavigationLi a:hover,
+  .adminProductBtn:hover {
+    color: #4b46af;
+    color: #0075f6;
+  }
+
+  .adminNavigationLi .active {
+    color: #0075f6;
+  }
+
+  .adminNavigationLi {
+    display: inline-flex;
+    /* margin-left: 7%; */
+    /* border: 1px solid black; */
+    margin: 0 8%;
+    padding: 1%;
+    padding-top: 5%;
+  }
+
+  .adminNavigationLi a,
+  .adminProductBtn {
+    cursor: pointer;
+    text-decoration: none;
+    /* transition: all 0.1s ease-in-out; */
+  }
+  .adminProductBtn {
+    border: none;
+    outline: 0;
+    background: transparent;
+    z-index: 1600;
+  }
+  .adminProductBtn:focus {
+    outline: 0;
+  }
+
+  .caretDown {
+    margin-left: 4px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .adminNavigationDiv {
+    width: 56%;
+    padding-left: 5%;
+  }
+  .top-header {
+    padding-top: 4%;
+    padding-left: 9%;
+  }
+}

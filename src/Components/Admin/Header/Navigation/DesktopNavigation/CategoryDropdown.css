@@ -1,27 +1,28 @@
-.productsDropdownMain {
+.adminCategoryDropdownMain {
   display: none;
 }
 @media screen and (min-width: 992px) {
-  .productsDropdownMain {
+  .adminCategoryDropdownMain {
     display: block;
     height: auto;
     width: 11em;
     background-color: transparent;
     position: absolute;
     padding-top: 1.2em;
-    right: 14em;
-    top: 9.8em;
+    right: 15.5em;
+    top: 3.5em;
     z-index: 1501;
     /* padding-top: 1em; */
     background-clip: padding-box;
     border: none;
+    /* border: 1px solid black; */
     transition: display 0.5s ease;
   }
 
-  .none {
+  .adminCategoryNone {
     display: none;
   }
-  .trikon {
+  .adminCategoryTrikon {
     margin-left: 4.5em;
     width: 0;
     height: 0;
@@ -29,7 +30,7 @@
     border-right: 12px solid transparent;
     border-bottom: 12px solid #444;
   }
-  .cdUl {
+  .adminCategoryCdUl {
     list-style: none;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -37,24 +38,24 @@
     box-shadow: 1px 0px 9px rgba(0, 0, 0, 0.175);
   }
 
-  .cdLi {
+  .adminCategoryCdLi {
     margin: 0;
     padding: 0;
     transition: all 0.2s ease-in;
     padding: 8% 0%;
     /* text-align: center; */
+    text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  .cdLi:hover {
+  .adminCategoryCdLi:hover {
     cursor: pointer;
     background-color: #f9fafa;
   }
 
-  .cdLi a {
+  .adminCategoryCdLi a {
     color: #444;
     font-size: 1em;
     font-weight: 600;
-    padding: 6% 37%;
     background-color: transparent;
     border: none;
     /* border: 1px solid red; */
@@ -67,8 +68,9 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .productsDropdownMain {
-    right: 22.5em;
+  .adminCategoryDropdownMain {
+    right: 23.5em;
+    top: 4em;
     padding-top: 1.5em;
     padding-bottom: 0;
     cursor: pointer;

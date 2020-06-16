@@ -4,14 +4,17 @@ import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigation"
 import NavButton from "./Navigation/MobileNavigation/NavButton";
 import MobileNavLinks from "./Navigation/MobileNavigation/MobileNavLinks";
 import ProductsDropdown from "./Navigation/DesktopNavigation/ProductsDropdown";
+import CategoryDropdown from "./Navigation/DesktopNavigation/CategoryDropdown";
 import "./Header.css";
 
 class Header extends Component {
   state = {
     isSliderOpen: false,
     scrolled: false,
-    isCollapseOpen: false,
+    isCategoryCollapseOpen: false,
+    isProductCollapseOpen: false,
     productsModalOpen: false,
+    categoryModalOpen: false,
   };
 
   sliderOpener = () => {
@@ -21,8 +24,14 @@ class Header extends Component {
     this.setState({ isSliderOpen: false });
   };
 
-  collapseToggler = () => {
-    this.setState({ isCollapseOpen: !this.state.isCollapseOpen });
+  categoryCollapseToggler = () => {
+    this.setState({
+      isCategoryCollapseOpen: !this.state.isCategoryCollapseOpen,
+    });
+  };
+
+  productCollapseToggler = () => {
+    this.setState({ isProductCollapseOpen: !this.state.isProductCollapseOpen });
   };
 
   productsDropdownOpener = () => {
@@ -33,6 +42,14 @@ class Header extends Component {
     this.setState({ productsModalOpen: false });
   };
 
+  categoryDropdownOpener = () => {
+    this.setState({ categoryModalOpen: true });
+  };
+
+  categoryDropdownCloser = () => {
+    this.setState({ categoryModalOpen: false });
+  };
+
   render() {
     return (
       <div className={this.state.scrolled ? `scrolledHeader` : `header`}>
@@ -41,18 +58,28 @@ class Header extends Component {
         <DesktopNavigation
           productsDropdownOpener={this.productsDropdownOpener}
           productsDropdownCloser={this.productsDropdownCloser}
+          categoryDropdownOpener={this.categoryDropdownOpener}
+          categoryDropdownCloser={this.categoryDropdownCloser}
           productsModalOpen={this.state.productsModalOpen}
+          categoryModalOpen={this.state.categoryModalOpen}
         />
         <ProductsDropdown
           productsModalOpen={this.state.productsModalOpen}
           productsDropdownOpener={this.productsDropdownOpener}
           productsDropdownCloser={this.productsDropdownCloser}
         />
+        <CategoryDropdown
+          categoryModalOpen={this.state.categoryModalOpen}
+          categoryDropdownOpener={this.categoryDropdownOpener}
+          categoryDropdownCloser={this.categoryDropdownCloser}
+        />
         <MobileNavLinks
           isSliderOpen={this.state.isSliderOpen}
           sliderCloser={this.sliderCloser}
-          isCollapseOpen={this.state.isCollapseOpen}
-          collapseToggler={this.collapseToggler}
+          isCategoryCollapseOpen={this.state.isCategoryCollapseOpen}
+          isProductCollapseOpen={this.state.isProductCollapseOpen}
+          categoryCollapseToggler={this.categoryCollapseToggler}
+          productCollapseToggler={this.productCollapseToggler}
         />
       </div>
     );
