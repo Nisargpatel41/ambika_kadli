@@ -21,7 +21,7 @@ const ImageSlideShow = ({ productImages, imageZoomOpener }) => {
     return (
       <div className={`carousel-item ${activeClass}`} key={key}>
         <img
-          src={`http://localhost:5000/${image.imagePath}`}
+          src={`https://ambika-kadli.herokuapp.com/${image.imagePath}`}
           alt="Product img"
           className="slideShowImage"
           onClick={imageZoomOpener}

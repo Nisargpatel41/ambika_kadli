@@ -60,6 +60,9 @@
 .whatsappShare:focus {
   color: #50cc5c;
 }
+.copyLink {
+  color: black;
+}
 .copiedText {
   color: red;
   letter-spacing: 1px;
