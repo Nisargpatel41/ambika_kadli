@@ -17,6 +17,8 @@ import ProductsPage from "./Components/ProductsPage/ProductsPage";
 import SingleProduct from "./Components/SingleProduct/SingleProduct";
 import ContactPage from "./Components/ContactPage/ContactPage";
 import Footer from "./Components/Common/Footer/Footer";
+import pageNotFound from "./Components/404Page/404Page";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -222,6 +224,7 @@ class App extends Component {
                 />
               )}
             />
+            <Redirect to="/notfound" />
           </Switch>
         </div>
         <Footer />
