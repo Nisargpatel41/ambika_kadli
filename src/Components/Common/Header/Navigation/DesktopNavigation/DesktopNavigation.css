@@ -59,6 +59,9 @@
     color: #4b46af;
     color: #0075f6;
   }
+  .navigationLi .active {
+    color: #0075f6;
+  }
 
   .navigationLi {
     display: inline-flex;

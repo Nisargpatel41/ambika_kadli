@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AdminHeader from "../Header/Header";
-
+import { Redirect } from "react-router-dom";
 import Pagination from "./Pagination";
 import { paginate } from "./paginate";
 
@@ -15,7 +15,14 @@ class UserMessage extends Component {
   };
 
   async componentDidMount() {
-    const { data } = await axios.get("http://localhost:5000/api/message");
+    const { data } = await axios.get(
+      "https://ambika-kadli.herokuapp.com/api/message",
+      {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
     this.setState({ messages: data, totalCount: data.length });
   }
 
@@ -32,13 +39,17 @@ class UserMessage extends Component {
   deleteMessage = async (e) => {
     const mid = e.currentTarget.getAttribute("id");
 
-    const result = await axios.put("http://localhost:5000/api/message", {
-      mid: mid,
-    });
+    const result = await axios.put(
+      "https://ambika-kadli.herokuapp.com/api/message",
+      {
+        mid: mid,
+      }
+    );
     const deletedMessage = result.data;
     const messages = this.state.messages.filter(
       (c) => c._id !== deletedMessage._id
     );
+
     this.setState({ messages });
   };
 
@@ -55,6 +66,10 @@ class UserMessage extends Component {
   };
 
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect from={this.props.location.pathname} to="/login" />;
+    }
+
     const { messages } = this.getPagedData();
     let countNum = 0;
     // const messages = this.state.messages;
@@ -81,13 +96,11 @@ class UserMessage extends Component {
                   <th scope="row">Last Name: </th>
                   <td>{message.lastName}</td>
                 </tr>
-                <tr>
-                  <th scope="row">Email Address: </th>
-                  <td>{message.email}</td>
-                </tr>
+
                 <tr>
                   <th scope="row">Mobile Number: </th>
                   <td>{message.mobileNo}</td>
+                  {/* <td>{<a href={`tel:${message.mobileNo}`}></a>}</td> */}
                 </tr>
 
                 <tr>
@@ -97,9 +110,9 @@ class UserMessage extends Component {
               </tbody>
             </table>
             <div className="text-center pt-3">
-              <a href={`mailto:${message.email}`} className="btn btn-primary">
+              {/* <a href={`mailto:${message.email}`} className="btn btn-primary">
                 Email
-              </a>
+              </a> */}
               <button
                 id={message._id}
                 onClick={this.deleteMessage}
@@ -116,7 +129,7 @@ class UserMessage extends Component {
     return (
       <div>
         <React.Fragment>
-          <AdminHeader />
+          <AdminHeader logoutHandler={this.props.logoutHandler} />
           <div className="resultDiv p-2">
             {card}
             <Pagination

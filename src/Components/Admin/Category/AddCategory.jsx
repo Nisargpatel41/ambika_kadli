@@ -1,11 +1,11 @@
 import React from "react";
 import AdminHeader from "../Header/Header";
 import SectionTitle from "../../Common/SectionTitle/SectionTitle";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const AddCategory = () => {
+const AddCategory = (props) => {
   const history = useHistory();
 
   const submitForm = (e) => {
@@ -13,9 +13,17 @@ const AddCategory = () => {
     const categoryName = e.target.elements.addCategory.value;
     e.target.elements.addCategory.value = "";
     axios
-      .post("http://localhost:5000/api/category", {
-        categoryName: categoryName,
-      })
+      .post(
+        "https://ambika-kadli.herokuapp.com/api/category",
+        {
+          categoryName: categoryName,
+        },
+        {
+          headers: {
+            "x-auth-token": localStorage.getItem("token"),
+          },
+        }
+      )
       .then((response) => {
         toast.success("Category Added!");
       })
@@ -24,9 +32,13 @@ const AddCategory = () => {
       })
       .catch((error) => {});
   };
+  if (!props.isAuth) {
+    return <Redirect from={props.location.pathname} to="/login" />;
+  }
+
   return (
     <React.Fragment>
-      <AdminHeader />
+      <AdminHeader logoutHandler={props.logoutHandler} />
 
       <div className="addCategoryMain">
         <SectionTitle title="Add Category" />
@@ -39,6 +51,7 @@ const AddCategory = () => {
               id="addCategory"
               placeholder="Ex: Kadli"
               name="categoryName"
+              autoFocus
             />
           </div>
           <div className="form-group pt-2">

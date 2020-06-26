@@ -1,0 +1,9 @@
+.productsPageMain {
+  padding-bottom: 15%;
+}
+
+@media screen and (min-width: 992px) {
+  .productsPageMain {
+    padding-bottom: 7%;
+  }
+}

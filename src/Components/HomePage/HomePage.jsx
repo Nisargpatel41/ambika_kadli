@@ -1,60 +1,102 @@
-import React from "react";
+import React, { Component } from "react";
 import Header from "../Common/Header/Header";
 import SectionTitle from "../Common/SectionTitle/SectionTitle";
 import InnerTitle from "../Common/InnerTitle/InnerTitle";
-import Kadli1 from "../../Images/ProductImages/kadli1.jpg";
-import Kadli2 from "../../Images/ProductImages/kadli2.jpg";
-import Kadli3 from "../../Images/ProductImages/kadli3.jpg";
-import Kadli4 from "../../Images/ProductImages/kadli4.jpg";
-import Kadli5 from "../../Images/ProductImages/kadli5.jpg";
-import Kadli6 from "../../Images/ProductImages/kadli6.jpg";
-
-import ProductBox from "../Common/ProductBox/ProductBox";
-
+import ProductsMobileRender from "./ProductsMobileRender/ProductsMobileRender";
+import ProductsDeskRender from "./ProductsDeskRender/ProductsDeskRender";
+import axios from "axios";
 import "./HomePage.css";
 
-const HomePage = () => {
-  return (
-    <React.Fragment>
-      <Header />
+class HomePage extends Component {
+  state = { categories: [], categoryWiseData: {} };
 
-      <div className="homePageMain">
-        <SectionTitle title="Featured Products" />
+  movingToSingleProduct = (e) => {
+    this.props.history.push(`product/${e.currentTarget.id}`);
+  };
 
-        <InnerTitle title="Kadli" />
-        <ProductBox
-          imgSource={Kadli1}
-          productName="92.5 Silver Kadli"
-          productWeight="412.12 g"
+  movingToProducts = (e) => {
+    this.props.history.push(`products/${e.currentTarget.id}`);
+  };
+
+  movingToProductsFromNav = (e) => {
+    e.preventDefault();
+
+    this.props.history.push(`products/${e.target.id}`);
+  };
+
+  render() {
+    const categoryWiseProducts = this.props.categories.map((category) => {
+      return (
+        <div key={category._id} className="categoryWiseProductsDiv">
+          <InnerTitle title={category.categoryName} />
+          <ProductsMobileRender
+            categoryId={category._id}
+            // categoryWiseData={this.state.categoryWiseData}
+            movingToSingleProduct={this.movingToSingleProduct}
+          />
+          <div className="viewBtnDiv">
+            <button
+              className="viewBtn"
+              id={category._id}
+              onClick={this.movingToProducts}
+            >
+              View More
+            </button>
+          </div>
+        </div>
+      );
+    });
+    const categoryWiseDeskProducts = this.props.categories.map((category) => {
+      return (
+        <div key={category._id} className="categoryWiseDeskProductsDiv">
+          <InnerTitle title={category.categoryName} />
+          <ProductsDeskRender
+            categoryId={category._id}
+            // categoryWiseData={this.state.categoryWiseData}
+            movingToSingleProduct={this.movingToSingleProduct}
+          />
+          <div className="viewBtnDiv">
+            <button
+              className="viewBtn"
+              id={category._id}
+              onClick={this.movingToProducts}
+            >
+              View More
+            </button>
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <React.Fragment>
+        <Header
+          categories={this.props.categories}
+          movingToProductsFromNav={this.movingToProductsFromNav}
         />
-        <ProductBox
-          imgSource={Kadli2}
-          productName="92.5 Silver Kadli"
-          productWeight="123.19 g"
-        />
-        <ProductBox
-          imgSource={Kadli3}
-          productName="92.5 Silver Kadli"
-          productWeight="200 g"
-        />
-        <ProductBox
-          imgSource={Kadli4}
-          productName="92.5 Silver Kadli"
-          productWeight="878.324 g"
-        />
-        <ProductBox
-          imgSource={Kadli5}
-          productName="92.5 Silver Kadli"
-          productWeight="120.9 g"
-        />
-        <ProductBox
-          imgSource={Kadli6}
-          productName="92.5 Silver Kadli"
-          productWeight="20 g"
-        />
-      </div>
-    </React.Fragment>
-  );
-};
+
+        <div className="homePageMain">
+          <div className="productsDiv">
+            <SectionTitle title="Featured Products" />
+            {categoryWiseProducts}
+            {categoryWiseDeskProducts}
+          </div>
+          <div className="aboutMeDiv">
+            <SectionTitle title="About Me" />
+            <div className="aboutMeTextDiv">
+              <p className="aboutMeText">
+                Hi, I'm Dharmendra Patel and I am Wholesaler merchant of Kadli,
+                Kada, Lucky, Rakhadi etc. if you want to purchase any of the
+                items which you have seen in my website contact me any time, if
+                the items which you are looking for is available then you can
+                purchase it or i will make it for you within few days.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
+}
 
 export default HomePage;

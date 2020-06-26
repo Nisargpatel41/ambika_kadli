@@ -2,14 +2,20 @@ import React from "react";
 import "./ProductsDropdown.css";
 
 const ProductsDropdown = (props) => {
-  const handleChange = (e) => {
-    // props.updateCategory(e.target.value);
-    props.productsDropdownToggler();
-  };
-
   const myClass = props.productsModalOpen
     ? "productsDropdownMain"
     : "productsDropdownMain none";
+
+  const categoriesRender = props.categories.map((category) => {
+    return (
+      <li className="cdLi" key={category._id}>
+        <a href="#" id={category._id} onClick={props.movingToProductsFromNav}>
+          {category.categoryName}
+        </a>
+      </li>
+    );
+  });
+
   return (
     <div
       className={myClass}
@@ -21,17 +27,7 @@ const ProductsDropdown = (props) => {
       }}
     >
       <div className="trikon"></div>
-      <ul className="cdUl">
-        <li className="cdLi">
-          <a href="#">Kadli</a>
-        </li>
-        <li className="cdLi">
-          <a href="#">Lucky</a>
-        </li>
-        <li className="cdLi">
-          <a href="#">Kada</a>
-        </li>
-      </ul>
+      <ul className="cdUl">{categoriesRender}</ul>
     </div>
   );
 };

@@ -1,4 +1,18 @@
 .box {
+  height: 18em;
+  width: 59%;
+  margin: 7% 19% 0 19%;
+  /* padding: 1% 0% 3% 0%; */
+  background-color: #fff;
+  transition: all 0.4s ease;
+  cursor: default;
+  border: 1px solid black;
+  border: 1px solid #ededed;
+  padding: 3% 0;
+  /* padding: 3%; */
+}
+
+.boxInline {
   display: inline-block;
   height: 15em;
   width: 44%;
@@ -10,20 +24,16 @@
   border: 1px solid black;
   border: 1px solid #ededed;
   padding: 3% 0;
-  /* padding: 3%; */
-}
-
-.wholeBox {
-  height: auto;
-  width: 94%;
-  margin: 10% 3% 0 3%;
-  padding: 1% 0% 3% 0%;
-  background-color: #fff;
-  transition: all 0.4s ease;
-  cursor: default;
 }
 
 .productImageDiv {
+  height: 10em;
+  width: 100%;
+  margin-top: 2%;
+  padding: 0 6%;
+}
+
+.productImageDivInline {
   height: 8em;
   width: 100%;
   margin-top: 2%;
@@ -36,6 +46,16 @@
 }
 
 .productTitleDiv {
+  background: url(./bg-title.png) no-repeat center bottom;
+  color: #555;
+  height: 3.7em;
+  margin: 0;
+  padding-top: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.productTitleDivInline {
   background: url(./bg-title.png) no-repeat center bottom;
   color: #555;
   height: 3em;
@@ -57,7 +77,6 @@
   padding-top: 1em;
   /* display: inline-flex; */
   width: 100%;
-  height: 100%;
   text-align: center;
   /* padding-bottom: 2%; */
 }
@@ -73,6 +92,13 @@
 }
 
 .weight {
+  font-size: 1em;
+  color: #3832a8;
+  transition: margin-left 0.3s ease;
+  /* margin-left: 3.3em; */
+}
+
+.weightInline {
   font-size: 0.9em;
   color: #3832a8;
   transition: margin-left 0.3s ease;
@@ -143,7 +169,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .box {
+  .boxInline {
     display: inline-block;
     height: 21em;
     width: 27%;
@@ -153,13 +179,17 @@
     transition: all 0.4s ease;
     cursor: pointer;
   }
+  .productImageDivInline {
+    height: 13em;
+  }
 
-  .productTitleDiv {
+  .productTitleDivInline {
     height: 4em;
     padding-top: 1.4em;
   }
   .skillTitle {
     font-size: 1em;
+    letter-spacing: 1px;
   }
 
   .lastDiv {
@@ -170,30 +200,30 @@
     font-size: 1.1em;
   }
 
-  .box:hover {
+  .boxInline:hover {
     box-shadow: 0 4px 30px -5px rgba(0, 0, 0, 0.2);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .box {
+  .boxInline {
     height: 22em;
     width: 24%;
     margin: 5% 4% 0 5%;
     padding: 1% 0% 3% 0%;
   }
-  .productImageDiv {
+  .productImageDivInline {
     height: 13em;
   }
   .skillTitle {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
   .lastDiv {
     padding-top: 1.1em;
   }
 
-  .weight {
-    font-size: 1.2em;
+  .weightInline {
+    font-size: 1.1em;
   }
 }

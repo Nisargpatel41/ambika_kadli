@@ -1,11 +1,96 @@
+.homePageMain {
+  padding-bottom: 2em;
+}
 .title {
   text-align: center;
   font-weight: 400;
+}
+.categoryWiseDeskProductsDiv {
+  display: none;
+}
+.aboutMeDiv {
+  margin-top: 3em;
+  background: url(./bg_line.png) repeat center top;
+  border: 1px solid #f2f2f2;
+}
+
+.aboutMeTextDiv {
+  padding: 5% 5% 5% 5%;
+}
+
+.aboutMeText {
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  height: auto;
+  color: #4c4c4c;
+
+  /* margin: 10% 7%; */
+  line-height: 1.7em;
+}
+
+.viewBtnDiv {
+  text-align: center;
+  padding-top: 10%;
+}
+
+.viewBtn {
+  padding: 0.4em 1.5em;
+  text-transform: capitalize;
+  letter-spacing: 1.3px;
+  font-size: 1em;
+  background-color: #1982f6;
+  color: #fff;
+  border: none;
+  outline: 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.viewBtn:hover {
+  border: 1px solid #1982f6;
+  background-color: #fff;
+  color: #1982f6;
+}
+
+.viewBtn:focus {
+  outline: 0;
 }
 
 @media screen and (min-width: 992px) {
   .title {
     font-weight: 400;
     font-size: 2rem;
+  }
+  .categoryWiseProductsDiv {
+    display: none;
+  }
+  .categoryWiseDeskProductsDiv {
+    display: block;
+    width: 100%;
+    padding: 0 5% 5% 5%;
+    /* padding-right: 0; */
+  }
+  .viewBtnDiv {
+    text-align: center;
+    padding-top: 5%;
+  }
+  .viewBtn {
+    padding: 0.6em 2em;
+    font-size: 1.1em;
+  }
+  .aboutMeDiv {
+    margin-top: 0em;
+    margin-bottom: 1.5em;
+  }
+
+  .aboutMeTextDiv {
+    padding: 0% 5% 3% 5%;
+  }
+
+  .aboutMeText {
+    font-size: 1.2em;
+    line-height: 2em;
+    letter-spacing: 1.2px;
   }
 }

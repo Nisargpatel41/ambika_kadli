@@ -1,0 +1,298 @@
+.footerMainDiv {
+  background: #d6edfb;
+  background: #92c5ff;
+  background: #9fccff;
+  background: #19334b;
+  background: #001d38;
+  background-color: #f7f7f7;
+  background: url(./bg_header.png) repeat center top;
+  width: 100%;
+  /* height: 46em; */
+  height: auto;
+  margin: 0;
+  padding: 10% 0 0 0;
+}
+
+.footerContentMain {
+  width: 100%;
+}
+
+.footerLinks {
+  width: auto;
+}
+.footerLi {
+  padding-bottom: 4%;
+  text-decoration: none;
+  list-style: none;
+}
+.footerLi a {
+  color: #444;
+  color: #4c4c4c;
+
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.footerLi a:focus {
+  text-decoration: none;
+}
+
+.footerSocialLinks {
+  /* width: 100%; */
+  /* border: 1px solid yellow; */
+  margin-top: 0%;
+}
+.footerSocialUl {
+  padding-left: 5%;
+  padding-top: 10%;
+}
+
+.footerSocialLi {
+  text-decoration: none;
+  display: inline;
+  padding-right: 7%;
+}
+
+.footerSocialLi a {
+  color: #444;
+  color: #4c4c4c;
+
+  font-size: 1em;
+  line-height: 40px;
+  border: 1px solid #334a60;
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent;
+}
+
+.linkedinLi a {
+  padding: 3% 4.7%;
+}
+
+.whatsappLi a,
+.instagramLi a {
+  padding: 3% 4%;
+}
+
+.footerTitle {
+  font-size: 1.2em;
+  margin-bottom: 10%;
+  font-weight: 600;
+  color: #444;
+  color: #77b7ff;
+  color: #0075f6;
+}
+
+.footerContact {
+  color: #444;
+  color: #4c4c4c;
+  font-weight: 400;
+}
+.footerContactContentMain {
+  padding-top: 10%;
+  padding-left: 5%;
+}
+
+.footerContactContent {
+  display: inline-flex;
+  width: 100%;
+  font-size: 1em;
+}
+
+.footerContactContent p {
+  padding-left: 1%;
+  flex: 12;
+}
+.footerContactContent i {
+  flex: 1;
+  margin-top: 0.4em;
+}
+
+.footerBorder {
+  margin-top: 10%;
+  padding-bottom: 1em;
+  border-top: 1px solid #e0e0e0;
+  width: 94%;
+}
+
+.tarif {
+  font-size: 0.8em;
+  color: #444;
+  color: #4c4c4c;
+
+  margin-top: 0;
+  padding-left: 13%;
+  padding-bottom: 5%;
+}
+
+.tarif a {
+  color: #77b7ff;
+  color: #0075f6;
+  text-decoration: none;
+}
+
+.tarif a:hover,
+.tarif a:focus {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 480px) {
+  .footerMainDiv {
+    padding: 0%;
+  }
+  .tarif {
+    font-size: 0.8em;
+    padding-left: 18%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .footerSocialLi a {
+    color: #444;
+    font-size: 1.2em;
+    line-height: 40px;
+    padding: 2% 3%;
+  }
+  .tarif {
+    font-size: 0.9em;
+    padding-left: 22%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .tarif {
+    padding-left: 27%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .footerMainDiv {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+  }
+
+  .footerContentMain {
+    display: flex;
+  }
+
+  .footerLi a {
+    color: #444;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+  }
+
+  .footerLi a:hover {
+    color: #0075f6;
+    text-decoration: none;
+  }
+
+  .footerSocialLinks {
+    flex: 1;
+    margin-top: 0%;
+    padding-left: 20%;
+    order: 2;
+  }
+  .footerSocialUl {
+    padding-top: 5%;
+  }
+
+  .footerSocialLi {
+    padding-right: 7%;
+  }
+
+  .footerSocialLi a {
+    color: #444;
+    color: #4c4c4c;
+
+    font-size: 1.4em;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .linkedinLi a {
+    padding: 0.8% 4%;
+  }
+
+  .whatsappLi a,
+  .instagramLi a {
+    padding: 0.8% 3.5%;
+  }
+
+  /* .footerSocialLi a:hover {
+    transform: rotate(360deg);
+  } */
+
+  .whatsapp:hover {
+    border: 1px solid #24cd24;
+    color: #24cd63;
+  }
+
+  .instagram:hover {
+    color: #b7358a;
+    border: 1px solid #b7358a;
+  }
+
+  .linkedin:hover {
+    color: #0077b5;
+    border: 1px solid #0077b5;
+  }
+
+  .footerTitle {
+    color: #444;
+    color: #77b7ff;
+    color: #0075f6;
+  }
+
+  .footerContact {
+    margin-top: 0%;
+    flex: 1;
+    order: 1;
+  }
+  .footerContactContentMain {
+    padding-top: 5%;
+  }
+  .footerContactContent p {
+    padding-left: 2%;
+  }
+
+  .footerContactContent {
+    font-size: 1.1em;
+  }
+
+  .footerBorder {
+    margin-top: 2%;
+    width: 94%;
+  }
+
+  .tarif {
+    font-size: 0.9em;
+    padding-left: 31%;
+    padding-bottom: 2%;
+  }
+
+  .tarif span {
+    color: #77b7ff;
+    color: #0075f6;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* .footerLinks {
+    order: 2;
+  }
+  .footerSocialLinks {
+    order: 3;
+  }
+  .footerContact {
+    order: 1;
+  } */
+  .tarif {
+    font-size: 0.9em;
+    padding-left: 37%;
+    padding-bottom: 1%;
+  }
+}

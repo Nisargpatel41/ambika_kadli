@@ -11,7 +11,7 @@ const DesktopNavigation = (props) => {
       <nav className="adminNavigation">
         <ul className="adminNavigationUl">
           <li className="adminNavigationLi">
-            <NavLink to="/helloAdmin">Home</NavLink>
+            <NavLink to="/admin-home-page">Home</NavLink>
           </li>
           <li className="adminNavigationLi">
             <button
@@ -54,7 +54,14 @@ const DesktopNavigation = (props) => {
             <NavLink to="edit-video">Video</NavLink>
           </li>
           <li className="adminNavigationLi">
-            <NavLink to="#">Logout</NavLink>
+            <button
+              className="adminLogoutBtn"
+              onClick={() => {
+                props.logoutHandler();
+              }}
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </nav>

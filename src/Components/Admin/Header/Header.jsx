@@ -62,6 +62,7 @@ class Header extends Component {
           categoryDropdownCloser={this.categoryDropdownCloser}
           productsModalOpen={this.state.productsModalOpen}
           categoryModalOpen={this.state.categoryModalOpen}
+          logoutHandler={this.props.logoutHandler}
         />
         <ProductsDropdown
           productsModalOpen={this.state.productsModalOpen}
@@ -80,6 +81,7 @@ class Header extends Component {
           isProductCollapseOpen={this.state.isProductCollapseOpen}
           categoryCollapseToggler={this.categoryCollapseToggler}
           productCollapseToggler={this.productCollapseToggler}
+          logoutHandler={this.props.logoutHandler}
         />
       </div>
     );

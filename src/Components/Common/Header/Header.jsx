@@ -47,12 +47,16 @@ class Header extends Component {
           productsModalOpen={this.state.productsModalOpen}
           productsDropdownOpener={this.productsDropdownOpener}
           productsDropdownCloser={this.productsDropdownCloser}
+          categories={this.props.categories}
+          movingToProductsFromNav={this.props.movingToProductsFromNav}
         />
         <MobileNavLinks
           isSliderOpen={this.state.isSliderOpen}
           sliderCloser={this.sliderCloser}
           isCollapseOpen={this.state.isCollapseOpen}
           collapseToggler={this.collapseToggler}
+          categories={this.props.categories}
+          movingToProductsFromNav={this.props.movingToProductsFromNav}
         />
       </div>
     );

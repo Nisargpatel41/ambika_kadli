@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./DesktopNavigation.css";
 
 const DesktopNavigation = (props) => {
@@ -24,7 +25,9 @@ const DesktopNavigation = (props) => {
       <nav className="navigation">
         <ul className="navigationUl">
           <li className="navigationLi">
-            <a href="#">Home</a>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
           </li>
           <li className="navigationLi">
             <button
@@ -44,7 +47,7 @@ const DesktopNavigation = (props) => {
             </button>
           </li>
           <li className="navigationLi">
-            <a href="#">Contact</a>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </nav>

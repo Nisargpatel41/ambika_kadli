@@ -34,7 +34,7 @@ const MobileNavLinks = (props) => {
         <nav className="adminNavigationMob">
           <ul className="adminNavigationUlMob">
             <li className="adminNavigationLiMob">
-              <NavLink to="/helloAdmin">Home</NavLink>
+              <NavLink to="/admin-home-page">Home</NavLink>
             </li>
             <li className="adminNavigationLiMob">
               <a
@@ -97,7 +97,14 @@ const MobileNavLinks = (props) => {
               <NavLink to="view-messages">Messages</NavLink>
             </li>
             <li className="adminNavigationLiMob">
-              <NavLink to="#">Logout</NavLink>
+              <button
+                className="adminLogoutBtn"
+                onClick={() => {
+                  props.logoutHandler();
+                }}
+              >
+                Logout
+              </button>
             </li>
           </ul>
         </nav>

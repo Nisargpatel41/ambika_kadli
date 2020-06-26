@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import AdminHeader from "../Header/Header";
 import SectionTitle from "../../Common/SectionTitle/SectionTitle";
@@ -20,11 +21,13 @@ class EditProduct extends Component {
   };
   productId = sessionStorage.getItem("pid");
   async componentWillMount() {
-    const categoryData = await axios.get("http://localhost:5000/api/category");
+    const categoryData = await axios.get(
+      "https://ambika-kadli.herokuapp.com/api/category"
+    );
     this.setState({ categories: categoryData.data });
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/product/${this.productId}`
+      `https://ambika-kadli.herokuapp.com/api/product/${this.productId}`
     );
 
     const productInfo = {
@@ -53,8 +56,13 @@ class EditProduct extends Component {
     sessionStorage.removeItem("pid");
 
     const result = await axios.put(
-      "http://localhost:5000/api/product",
-      updatedProductObj
+      "https://ambika-kadli.herokuapp.com/api/product",
+      updatedProductObj,
+      {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      }
     );
 
     toast.success("Product Updated!");
@@ -62,6 +70,10 @@ class EditProduct extends Component {
   };
 
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect from={this.props.location.pathname} to="/login" />;
+    }
+
     const { data, productObj, metal } = this.state;
     const allCategories = this.state.categories.map((category) => {
       if (productObj.categoryId === category._id) {
@@ -102,7 +114,7 @@ class EditProduct extends Component {
 
     return (
       <React.Fragment>
-        <AdminHeader />
+        <AdminHeader logoutHandler={this.props.logoutHandler} />
 
         <div className="addProductsMain">
           <SectionTitle title="Edit Product" />
@@ -121,6 +133,7 @@ class EditProduct extends Component {
                 placeholder="Ex: 92.5 Silver Kadli"
                 value={data.productName}
                 onChange={this.handleChange}
+                autoFocus
               />
             </div>
             <div className="form-group pt-2">

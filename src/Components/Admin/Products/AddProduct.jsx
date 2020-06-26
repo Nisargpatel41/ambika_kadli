@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import AdminHeader from "../Header/Header";
 import SectionTitle from "../../Common/SectionTitle/SectionTitle";
@@ -9,7 +10,7 @@ class AddProduct extends Component {
 
   componentWillMount() {
     axios
-      .get("http://localhost:5000/api/category")
+      .get("https://ambika-kadli.herokuapp.com/api/category")
       .then(({ data }) => {
         // categories = data;
         this.setState({ categories: data });
@@ -63,12 +64,22 @@ class AddProduct extends Component {
     data.set("productTouch", productTouch);
     data.set("productPrice", productPrice);
 
-    axios.post("http://localhost:5000/api/product", data).then((result) => {
-      toast.success("Product Added!");
-    });
+    axios
+      .post("https://ambika-kadli.herokuapp.com/api/product", data, {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      })
+      .then((result) => {
+        toast.success("Product Added!");
+      });
   };
 
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect from={this.props.location.pathname} to="/login" />;
+    }
+
     const allCategories = this.state.categories.map((category) => {
       return (
         <option key={category._id} value={category._id}>
@@ -79,7 +90,7 @@ class AddProduct extends Component {
 
     return (
       <React.Fragment>
-        <AdminHeader />
+        <AdminHeader logoutHandler={this.props.logoutHandler} />
 
         <div className="addProductsMain">
           <SectionTitle title="Add Product" />
@@ -95,6 +106,7 @@ class AddProduct extends Component {
                 className="form-control"
                 id="addProduct"
                 placeholder="Ex: 92.5 Silver Kadli"
+                autoFocus
               />
             </div>
             <div className="form-group pt-2">

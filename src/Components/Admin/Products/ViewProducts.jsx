@@ -1,32 +1,82 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import AdminHeader from "../Header/Header";
-import Img from "../../../Images/ProductImages/kadli1.jpg";
 import Pagination from "./Pagination";
 import { paginate } from "./paginate";
+import { toast } from "react-toastify";
 
 import axios from "axios";
 
 class ViewProducts extends Component {
   state = {
     products: [],
+    productsCopy: [],
     currentPage: 1,
     pageSize: 4,
     totalCount: 0,
+    categories: [],
   };
 
-  async componentDidMount() {
-    const { data } = await axios.get("http://localhost:5000/api/product");
-    this.setState({ products: data, totalCount: data.length });
+  componentWillMount() {
+    axios
+      .get("https://ambika-kadli.herokuapp.com/api/category")
+      .then(({ data }) => {
+        // categories = data;
+        this.setState({ categories: data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  updateData = (e) => {
-    const msgName = e.currentTarget.getAttribute("value");
+  async componentDidMount() {
+    const { data } = await axios.get(
+      "https://ambika-kadli.herokuapp.com/api/product"
+    );
+    this.setState({
+      productsCopy: data,
+      products: data,
+      totalCount: data.length,
+    });
+  }
 
-    const msgId = e.currentTarget.getAttribute("id");
+  productsFilter = (e) => {
+    e.preventDefault();
+    const cid = e.target.elements.selectCategory.value;
 
-    sessionStorage.setItem("shopId", msgId);
+    let productsCopy = [];
+    this.state.products.map((product) => {
+      if (product.categoryId === cid) productsCopy.push(product);
+    });
+    let totalCount = productsCopy.length;
+    this.setState({ productsCopy, totalCount });
+  };
 
-    sessionStorage.setItem("shopName", msgName);
+  deleteProduct = async (e) => {
+    const pid = e.currentTarget.getAttribute("id");
+
+    const authToken = localStorage.getItem("token");
+
+    axios
+      .delete("https://ambika-kadli.herokuapp.com/api/product", {
+        headers: {
+          "x-auth-token": authToken,
+        },
+        data: {
+          pid: pid,
+        },
+      })
+      .then((result) => {
+        toast.error("Product Deleted!");
+        const deletedProduct = result.data;
+        const products = this.state.products.filter(
+          (p) => p._id !== deletedProduct._id
+        );
+        this.setState({ products });
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   };
 
   handlePageChange = (page) => {
@@ -34,25 +84,38 @@ class ViewProducts extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, products } = this.state;
+    const { pageSize, currentPage, productsCopy } = this.state;
 
-    const data = paginate(products, currentPage, pageSize);
+    const data = paginate(productsCopy, currentPage, pageSize);
 
     return { products: data };
   };
 
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect from={this.props.location.pathname} to="/login" />;
+    }
+    const allCategories = this.state.categories.map((category) => {
+      return (
+        <option key={category._id} value={category._id}>
+          {category.categoryName}
+        </option>
+      );
+    });
+
     const { products } = this.getPagedData();
+
     let countProducts = 0;
     const card = products.map((product) => {
       countProducts += 1;
       // let productImgSrc;
       // console.log(product);
+
       const productImagesRender = product.productImages.map((productImg) => {
         return (
           <img
             key={productImg}
-            src={`http://localhost:5000/${productImg}`}
+            src={`https://ambika-kadli.herokuapp.com/${productImg}`}
             style={{
               width: "4em",
               height: "3em",
@@ -63,6 +126,7 @@ class ViewProducts extends Component {
           />
         );
       });
+
       return (
         <div key={product._id} className="card messageCard mt-5 pb-2">
           <div className="card-header">{product.createdAt}</div>
@@ -120,7 +184,13 @@ class ViewProducts extends Component {
               >
                 Edit
               </button>
-              <button className="btn btn-danger ml-3">Delete</button>
+              <button
+                id={product._id}
+                onClick={this.deleteProduct}
+                className="btn btn-danger ml-3"
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -130,8 +200,20 @@ class ViewProducts extends Component {
     return (
       <div>
         <React.Fragment>
-          <AdminHeader />
+          <AdminHeader logoutHandler={this.props.logoutHandler} />
           <div className="resultDiv p-2 pb-4">
+            <form onSubmit={this.productsFilter}>
+              <div style={{ display: "inline-flex" }}>
+                <div className="form-group pt-2 ml-3">
+                  <select className="form-control" id="selectCategory">
+                    {allCategories}
+                  </select>
+                </div>
+                <div className="form-group pt-2 ml-4">
+                  <input type="submit" className="btn btn-primary" value="Ok" />
+                </div>
+              </div>
+            </form>
             {card}
             <Pagination
               itemsCount={this.state.totalCount}

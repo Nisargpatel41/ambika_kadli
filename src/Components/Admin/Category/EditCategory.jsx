@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import AdminHeader from "../Header/Header";
 import SectionTitle from "../../Common/SectionTitle/SectionTitle";
 import { toast } from "react-toastify";
@@ -31,10 +32,18 @@ class EditCategory extends Component {
     const categoryName = e.target.elements.addCategory.value;
     e.target.elements.addCategory.value = "";
     axios
-      .put("http://localhost:5000/api/category", {
-        cid: this.state.cid,
-        categoryName: categoryName,
-      })
+      .put(
+        "https://ambika-kadli.herokuapp.com/api/category",
+        {
+          cid: this.state.cid,
+          categoryName: categoryName,
+        },
+        {
+          headers: {
+            "x-auth-token": localStorage.getItem("token"),
+          },
+        }
+      )
       .then((response) => {
         toast.success("Category Updated!");
       })
@@ -45,9 +54,13 @@ class EditCategory extends Component {
   };
 
   render() {
+    if (!this.props.isAuth) {
+      return <Redirect from={this.props.location.pathname} to="/login" />;
+    }
+
     return (
       <React.Fragment>
-        <AdminHeader />
+        <AdminHeader logoutHandler={this.props.logoutHandler} />
 
         <div className="addCategoryMain">
           <SectionTitle title="Edit Category" />
@@ -62,6 +75,7 @@ class EditCategory extends Component {
                 name="categoryName"
                 onChange={this.handleChange}
                 value={this.state.categoryName}
+                autoFocus
               />
             </div>
             <div className="form-group pt-2">
