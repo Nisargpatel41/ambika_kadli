@@ -16,6 +16,7 @@ const ShareProduct = ({ linkValue, copid, linkCopied }) => {
 
       <CopyToClipboard text={linkValue} onCopy={() => linkCopied()}>
         <a
+          href="/h"
           className="copyLink"
           onClick={(e) => {
             e.preventDefault();

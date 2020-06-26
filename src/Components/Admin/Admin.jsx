@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import axios from "axios";
 import AdminHeader from "./Header/Header";
 import SectionTitle from "../Common/SectionTitle/SectionTitle";
 import "./Admin.css";
@@ -10,7 +9,7 @@ class Admin extends Component {
 
   async componentWillMount() {
     // const viewsData = await axios.get();
-    const productsData = await axios.get("http://localhost:5000/api/product");
+    // const productsData = await axios.get("http://localhost:5000/api/product");
     // const messageData = await axios.get("http://localhost:5000/api/message");
   }
 

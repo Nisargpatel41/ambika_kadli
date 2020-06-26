@@ -3,11 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./CategoryDropdown.css";
 
 const CategoryDropdown = (props) => {
-  const handleChange = (e) => {
-    // props.updateCategory(e.target.value);
-    props.productsDropdownToggler();
-  };
-
   const myClass = props.categoryModalOpen
     ? "adminCategoryDropdownMain"
     : "adminCategoryDropdownMain adminCategoryNone";

@@ -22,7 +22,7 @@ const ImageSlideShow = ({ productImages, imageZoomOpener }) => {
       <div className={`carousel-item ${activeClass}`} key={key}>
         <img
           src={`http://localhost:5000/${image.imagePath}`}
-          alt="Product Photo"
+          alt="Product img"
           className="slideShowImage"
           onClick={imageZoomOpener}
         />

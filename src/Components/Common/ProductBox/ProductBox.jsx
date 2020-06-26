@@ -67,7 +67,7 @@ class ProductBox extends Component {
                 <h4 className={weightClassName}>{productWeightOrPrice}</h4>
               </div>
               <div className="moveBtnDiv">
-                <a className="moveBtn left" href="" role="button">
+                {/* <a className="moveBtn left" href="" role="button">
                   <i className="fa fa-link leftSpan" aria-hidden="true"></i>
                 </a>
                 <a className="moveBtn right" href="" role="button">
@@ -75,7 +75,7 @@ class ProductBox extends Component {
                     className="fa fa-whatsapp rightSpan"
                     aria-hidden="true"
                   ></i>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

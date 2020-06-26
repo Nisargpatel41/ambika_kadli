@@ -47,6 +47,7 @@ class ViewProducts extends Component {
     let productsCopy = [];
     this.state.products.map((product) => {
       if (product.categoryId === cid) productsCopy.push(product);
+      return true;
     });
     let totalCount = productsCopy.length;
     this.setState({ productsCopy, totalCount });

@@ -1,7 +1,6 @@
 import React from "react";
 import HaveQuestions from "./HaveQuestion";
 import SocialLinks from "./SocialLinks";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import "./Footer.css";
 const Footer = () => {
   return (

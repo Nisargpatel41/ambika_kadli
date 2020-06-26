@@ -50,12 +50,12 @@ class EditProduct extends Component {
 
   submitForm = async (e) => {
     e.preventDefault();
-    const cid = e.target.elements.categoryId.value;
+    // const cid = e.target.elements.categoryId.value;
     const pid = { pid: this.productId };
     const updatedProductObj = { ...this.state.data, ...pid };
     sessionStorage.removeItem("pid");
 
-    const result = await axios.put(
+    await axios.put(
       "https://ambika-kadli.herokuapp.com/api/product",
       updatedProductObj,
       {

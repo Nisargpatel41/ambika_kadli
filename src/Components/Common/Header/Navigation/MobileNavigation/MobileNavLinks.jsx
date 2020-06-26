@@ -10,7 +10,7 @@ const MobileNavLinks = (props) => {
   const categoriesRender = props.categories.map((category) => {
     return (
       <li className="navigationLiMob products " key={category._id}>
-        <a href="#" id={category._id} onClick={props.movingToProductsFromNav}>
+        <a href="/h" id={category._id} onClick={props.movingToProductsFromNav}>
           {category.categoryName}
         </a>
       </li>

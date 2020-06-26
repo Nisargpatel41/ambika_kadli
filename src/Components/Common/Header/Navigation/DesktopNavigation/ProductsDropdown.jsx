@@ -9,7 +9,7 @@ const ProductsDropdown = (props) => {
   const categoriesRender = props.categories.map((category) => {
     return (
       <li className="cdLi" key={category._id}>
-        <a href="#" id={category._id} onClick={props.movingToProductsFromNav}>
+        <a href="/h" id={category._id} onClick={props.movingToProductsFromNav}>
           {category.categoryName}
         </a>
       </li>

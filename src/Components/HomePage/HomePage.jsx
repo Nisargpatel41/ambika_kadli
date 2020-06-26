@@ -4,7 +4,6 @@ import SectionTitle from "../Common/SectionTitle/SectionTitle";
 import InnerTitle from "../Common/InnerTitle/InnerTitle";
 import ProductsMobileRender from "./ProductsMobileRender/ProductsMobileRender";
 import ProductsDeskRender from "./ProductsDeskRender/ProductsDeskRender";
-import axios from "axios";
 import "./HomePage.css";
 
 class HomePage extends Component {
