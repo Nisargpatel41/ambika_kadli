@@ -27,10 +27,6 @@ class ProductBox extends Component {
     } else return null;
   }
 
-  disableScroll(e) {
-    console.log(e.scroll);
-  }
-
   render() {
     const {
       imgSource,

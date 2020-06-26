@@ -17,7 +17,7 @@ class LoginForm extends Component {
         password: password,
       })
       .then((res) => {
-        const remainingMilliseconds = 60 * 60 * 4000;
+        const remainingMilliseconds = 60 * 60 * 2000;
         // const remainingMilliseconds = 60 * 1000;
 
         const expiryDate = new Date(

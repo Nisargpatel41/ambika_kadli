@@ -4,10 +4,11 @@ import SectionTitle from "../Common/SectionTitle/SectionTitle";
 import InnerTitle from "../Common/InnerTitle/InnerTitle";
 import ProductsMobileRender from "./ProductsMobileRender/ProductsMobileRender";
 import ProductsDeskRender from "./ProductsDeskRender/ProductsDeskRender";
+import preloader from "./loader.gif";
 import "./HomePage.css";
 
 class HomePage extends Component {
-  state = { categories: [], categoryWiseData: {} };
+  state = { categories: [], categoryWiseData: {}, preloader: false };
 
   movingToSingleProduct = (e) => {
     this.props.history.push(`product/${e.currentTarget.id}`);
@@ -22,6 +23,11 @@ class HomePage extends Component {
 
     this.props.history.push(`products/${e.target.id}`);
   };
+
+  // preloaderFun = () => {
+  //   return this.setState({ preloader: false });
+  // };
+  // this.preloaderFun();
 
   render() {
     const categoryWiseProducts = this.props.categories.map((category) => {
@@ -77,6 +83,13 @@ class HomePage extends Component {
         <div className="homePageMain">
           <div className="productsDiv">
             <SectionTitle title="Featured Products" />
+            {this.state.preloader && (
+              <div className="loaderDiv" id="loader">
+                <div className="loaderContent">
+                  <img src={preloader} className="loaderImg" alt="preloader" />
+                </div>
+              </div>
+            )}
             {categoryWiseProducts}
             {categoryWiseDeskProducts}
           </div>

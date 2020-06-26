@@ -57,6 +57,46 @@
   outline: 0;
 }
 
+.loaderDiv {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  padding: 70% 45%;
+}
+
+.loaderContent {
+  height: 3em;
+  width: 3em;
+}
+
+.loaderImg {
+  top: 15;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+  .loaderDiv {
+    padding: 55% 46%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .loaderDiv {
+    padding: 45% 46%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .loaderDiv {
+    padding: 35% 46%;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .title {
     font-weight: 400;
@@ -92,5 +132,16 @@
     font-size: 1.2em;
     line-height: 2em;
     letter-spacing: 1.2px;
+  }
+  .loaderDiv {
+    padding: 30% 46%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .loaderDiv {
+    padding: 22% 48%;
+    height: 100%;
+    width: 100%;
   }
 }

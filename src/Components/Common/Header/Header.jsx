@@ -4,6 +4,8 @@ import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigation"
 import NavButton from "./Navigation/MobileNavigation/NavButton";
 import MobileNavLinks from "./Navigation/MobileNavigation/MobileNavLinks";
 import ProductsDropdown from "./Navigation/DesktopNavigation/ProductsDropdown";
+import disableScroll from "disable-scroll";
+
 import "./Header.css";
 
 class Header extends Component {
@@ -16,9 +18,11 @@ class Header extends Component {
 
   sliderOpener = () => {
     this.setState({ isSliderOpen: true });
+    disableScroll.on();
   };
   sliderCloser = () => {
     this.setState({ isSliderOpen: false });
+    disableScroll.off();
   };
 
   collapseToggler = () => {

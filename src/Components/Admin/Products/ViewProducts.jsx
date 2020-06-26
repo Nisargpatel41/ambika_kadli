@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import AdminHeader from "../Header/Header";
+import ImageZoom from "../../Common/ProductBox/ImageZoom";
 import Pagination from "./Pagination";
+import BackDrop from "../../Common/Backdrop/Backdrop";
 import { paginate } from "./paginate";
 import { toast } from "react-toastify";
-
 import axios from "axios";
+import disableScroll from "disable-scroll";
 
 class ViewProducts extends Component {
   state = {
@@ -15,6 +17,8 @@ class ViewProducts extends Component {
     pageSize: 4,
     totalCount: 0,
     categories: [],
+    imageModal: false,
+    imgSrc: "",
   };
 
   componentWillMount() {
@@ -92,6 +96,22 @@ class ViewProducts extends Component {
     return { products: data };
   };
 
+  imageZoomOpener = (e) => {
+    this.setState({ imageModal: true, imgSrc: e.target.src });
+    disableScroll.on();
+  };
+
+  imageZoomCloser = () => {
+    this.setState({ imageModal: false, imgSrc: "" });
+    disableScroll.off();
+  };
+
+  imageZoomRender() {
+    if (this.state.imageModal) {
+      return <ImageZoom imgSrc={this.state.imgSrc} />;
+    } else return null;
+  }
+
   render() {
     if (!this.props.isAuth) {
       return <Redirect from={this.props.location.pathname} to="/login" />;
@@ -123,6 +143,7 @@ class ViewProducts extends Component {
               marginLeft: "0.5em",
               marginTop: "0.5em",
             }}
+            onClick={this.imageZoomOpener}
             alt="productImage"
           />
         );
@@ -223,6 +244,11 @@ class ViewProducts extends Component {
               onPageChange={this.handlePageChange}
             />
           </div>
+          {this.imageZoomRender()}
+          <BackDrop
+            imageModal={this.state.imageModal}
+            imageZoomCloser={this.imageZoomCloser}
+          />
         </React.Fragment>
       </div>
     );
