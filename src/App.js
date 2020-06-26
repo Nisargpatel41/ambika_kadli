@@ -213,7 +213,7 @@ class App extends Component {
               )}
             />
 
-            {/* <Route
+            <Route
               path="/"
               exact
               render={(props) => (
@@ -223,12 +223,6 @@ class App extends Component {
                   {...props}
                 />
               )}
-            /> */}
-            <Route
-              path="/"
-              exact
-              component={HomePage}
-              categories={this.state.categories}
             />
 
             <Redirect to="/notfound" />

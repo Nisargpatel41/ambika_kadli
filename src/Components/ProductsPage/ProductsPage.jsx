@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import Header from "../Common/Header/Header";
 import ProductBox from "../Common/ProductBox/ProductBox";
 import SectionTitle from "../Common/SectionTitle/SectionTitle";
@@ -8,43 +7,37 @@ import "./ProductsPage.css";
 
 class ProductsPage extends Component {
   state = { products: [], redirect: false, categoryId: "", oldCid: "" };
-  componentWillMount() {
-    this.setState({ categoryId: this.props.match.params.cid });
-    // if (this.state.categoryId !== this.state.oldCid) {
-    //   console.log(this.state.categoryId);
-    //   console.log(this.props.match.params.cid);
-    // }
-    // console.log(this.state.categoryId);
 
-    // this.props.match.params.cid
+  ajaxApiCall() {
+    axios
+      .get(
+        `https://ambika-kadli.herokuapp.com/api/product/categoryWise/${this.props.match.params.cid}`,
 
-    this.unlisten = this.props.history.listen((location, action) => {
-      this.setState({ oldCid: this.props.match.params.cid });
-    });
+        {
+          headers: {
+            "x-parameter": "productspage",
+          },
+        }
+      )
+      .then(({ data }) => {
+        this.setState({ products: data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  componentDidMount() {
-    if (this.state.categoryId) {
-      axios
-        .get(
-          `https://ambika-kadli.herokuapp.com/api/product/categoryWise/${this.state.categoryId}`,
 
-          {
-            headers: {
-              "x-parameter": "productspage",
-            },
-          }
-        )
-        .then(({ data }) => {
-          this.setState({ products: data });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+  componentDidMount() {
+    this.setState({ categoryId: this.props.match.params.cid });
+    this.ajaxApiCall();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.cid !== this.props.match.params.cid) {
+      this.ajaxApiCall();
     }
   }
-  componentWillUnmount() {
-    this.unlisten();
-  }
+
   movingToSingleProduct = (e) => {
     this.props.history.push(`/product/${e.currentTarget.id}`);
   };
@@ -56,12 +49,6 @@ class ProductsPage extends Component {
   };
 
   render() {
-    // console.log(this.state.redirect);
-    // this.setState({ redirect: false });
-
-    // if (this.state.redirect) {
-    //   return <Redirect to={`/products/${this.state.categoryId}`} />;
-    // }
     const productBoxRender = this.state.products.map((product) => {
       let productWeightOrPrice = `${product.productWeight} gram`;
 
