@@ -60,10 +60,19 @@
   transition: margin-left 0.3s ease;
 }
 
+.box:hover {
+  display: block;
+}
+
+.carousel-item {
+  z-index: 4 !important;
+}
+
 .moveBtn {
   height: 30px;
   width: 30px;
   /* display: none; */
+  /* margin-top: 7%; */
   background: #fff !important;
   color: #ff5a5a !important;
   color: #77b7ff !important;
@@ -71,18 +80,16 @@
   padding: 0;
   border-radius: 50%;
   cursor: pointer;
-  float: right;
-  /* opacity: 0; */
-  margin-top: -10%;
-  margin-left: 5%;
-  /* display: none; */
-  transition: all 0.3s ease-in-out;
 }
 
-.box:hover .moveBtn {
-  display: block;
+/* .left {
+  left: 79%;
 }
 
-.carousel-item {
-  z-index: 4 !important;
+.leftSpan {
+  margin-right: 3px;
 }
+
+.rightSpan {
+  margin-left: 3px;
+} */

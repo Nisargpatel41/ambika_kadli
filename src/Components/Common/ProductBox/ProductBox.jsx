@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import disableScroll from "disable-scroll";
 import ImageZoom from "./ImageZoom";
 import BackDrop from "../Backdrop/Backdrop";
 import "./ProductBox.css";
@@ -11,16 +12,23 @@ class ProductBox extends Component {
 
   imageZoomOpener = (e) => {
     this.setState({ imageModal: true, imgSrc: e.target.src });
+    // this.disableScroll(e);
+    disableScroll.on();
   };
 
   imageZoomCloser = () => {
     this.setState({ imageModal: false, imgSrc: "" });
+    disableScroll.off();
   };
 
   imageZoomRender() {
     if (this.state.imageModal) {
       return <ImageZoom imgSrc={this.state.imgSrc} />;
     } else return null;
+  }
+
+  disableScroll(e) {
+    console.log(e.scroll);
   }
 
   render() {
@@ -70,7 +78,8 @@ class ProductBox extends Component {
                 {/* <a className="moveBtn left" href="" role="button">
                   <i className="fa fa-link leftSpan" aria-hidden="true"></i>
                 </a>
-                <a className="moveBtn right" href="" role="button">
+                <a className="moveBtn
+                 right" href="" role="button">
                   <i
                     className="fa fa-whatsapp rightSpan"
                     aria-hidden="true"

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageSlideShow = ({ productImages, imageZoomOpener }) => {
+const ImageSlideShow = ({ productImages }) => {
   let count = -1;
   let key = 0;
   const slideShowCounter = productImages.map((image) => {
@@ -24,7 +24,6 @@ const ImageSlideShow = ({ productImages, imageZoomOpener }) => {
           src={`https://ambika-kadli.herokuapp.com/${image.imagePath}`}
           alt="Product img"
           className="slideShowImage"
-          onClick={imageZoomOpener}
         />
       </div>
     );

@@ -72,28 +72,20 @@ class ProductsMobileRender extends Component {
         >
           <div className="carousel-inner">{productBoxRender}</div>
           {/* <a
-            className="carousel-control-prev"
-            href="#carouselExampleControls"
+            className="carousel-control-prev moveBtn left"
+            href="#carouselExampleIndicators"
             role="button"
             data-slide="prev"
           >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Previous</span>
+            <i className="fa fa-chevron-left leftSpan" aria-hidden="true"></i>
           </a>
           <a
-            className="carousel-control-next"
-            href="#carouselExampleControls"
+            className="carousel-control-next moveBtn right"
+            href="#carouselExampleIndicators"
             role="button"
             data-slide="next"
           >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Next</span>
+            <i className="fa fa-chevron-right rightSpan" aria-hidden="true"></i>
           </a> */}
         </div>
       </div>

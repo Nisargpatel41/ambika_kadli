@@ -11,7 +11,7 @@ class ForgotPassword extends Component {
     const newPassword = e.target.elements.newPassword.value;
 
     axios
-      .post("http://localhost:5000/api/forgot", {
+      .post("https://ambika-kadli.herokuapp.com/api/forgot", {
         adminOtp: otpNumber,
         newPassword: newPassword,
       })
@@ -36,7 +36,7 @@ class ForgotPassword extends Component {
         >
           <div
             className="loginFormDiv"
-            style={{ backgroundColor: "#fff", height: "5em" }}
+            style={{ backgroundColor: "#fff", height: "auto" }}
           >
             <SectionTitle title="Forgot Password" />
 

@@ -3,8 +3,6 @@ import axios from "axios";
 import Header from "../Common/Header/Header";
 import ImageSlideShow from "./ImageSlideShow";
 import ProductDetail from "./ProductDetail";
-import ImageZoom from "../Common/ProductBox/ImageZoom";
-import BackDrop from "../Common/Backdrop/Backdrop";
 
 import "./SingleProduct.css";
 class SingleProduct extends Component {
@@ -60,30 +58,13 @@ class SingleProduct extends Component {
     }, 3000);
   };
 
-  imageZoomOpener = (e) => {
-    this.setState({ imageModal: true, imgSrc: e.target.src });
-  };
-
-  imageZoomCloser = () => {
-    this.setState({ imageModal: false, imgSrc: "" });
-  };
-
-  imageZoomRender() {
-    if (this.state.imageModal) {
-      return <ImageZoom imgSrc={this.state.imgSrc} />;
-    } else return null;
-  }
-
   render() {
     return (
       <React.Fragment>
         <Header categories={this.props.categories} />
 
         <div className="singleProductMain">
-          <ImageSlideShow
-            productImages={this.state.productImages}
-            imageZoomOpener={this.imageZoomOpener}
-          />
+          <ImageSlideShow productImages={this.state.productImages} />
           <ProductDetail
             linkValue={this.state.linkValue}
             productObj={this.state.productObj}
@@ -91,11 +72,6 @@ class SingleProduct extends Component {
             linkCopied={this.linkCopied}
           />
         </div>
-        {this.imageZoomRender()}
-        <BackDrop
-          imageModal={this.state.imageModal}
-          imageZoomCloser={this.imageZoomCloser}
-        />
       </React.Fragment>
     );
   }
