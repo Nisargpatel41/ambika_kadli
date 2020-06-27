@@ -1,8 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import disableScroll from "disable-scroll";
+
 import "./MobileNavLinks.css";
 
 const MobileNavLinks = (props) => {
+  function scrollDisable() {
+    disableScroll.off();
+  }
   const bgClass = props.isSliderOpen ? "mobileSliderBg" : "";
   const divClass = props.isSliderOpen ? "mobileSlider open" : "mobileSlider";
   const collapseIconClass = props.isCollapseOpen ? "minus" : "plus";
@@ -36,7 +41,7 @@ const MobileNavLinks = (props) => {
         <nav className="navigationMob">
           <ul className="navigationUlMob">
             <li className="navigationLiMob">
-              <NavLink exact to="/">
+              <NavLink exact to="/" onClick={scrollDisable}>
                 Home
               </NavLink>
             </li>
@@ -63,7 +68,9 @@ const MobileNavLinks = (props) => {
               {categoriesRender}
             </p>
             <li className="navigationLiMob">
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/contact" onClick={scrollDisable}>
+                Contact
+              </NavLink>
             </li>
           </ul>
         </nav>

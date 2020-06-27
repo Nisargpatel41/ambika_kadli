@@ -232,7 +232,12 @@ class ViewProducts extends Component {
                   </select>
                 </div>
                 <div className="form-group pt-2 ml-4">
-                  <input type="submit" className="btn btn-primary" value="Ok" />
+                  <input
+                    type="submit"
+                    className="btn btn-primary"
+                    style={{ height: "2.4em" }}
+                    value="Ok"
+                  />
                 </div>
               </div>
             </form>
