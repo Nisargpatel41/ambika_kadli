@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "../Common/Header/Header";
 import ImageSlideShow from "./ImageSlideShow";
 import ProductDetail from "./ProductDetail";
+import disableScroll from "disable-scroll";
 
 import "./SingleProduct.css";
 class SingleProduct extends Component {
@@ -58,10 +59,19 @@ class SingleProduct extends Component {
     }, 3000);
   };
 
+  movingToProductsFromNav = (e) => {
+    e.preventDefault();
+    disableScroll.off();
+    this.props.history.push(`/products/${e.target.id}`);
+  };
+
   render() {
     return (
       <React.Fragment>
-        <Header categories={this.props.categories} />
+        <Header
+          categories={this.props.categories}
+          movingToProductsFromNav={this.movingToProductsFromNav}
+        />
 
         <div className="singleProductMain">
           <ImageSlideShow productImages={this.state.productImages} />

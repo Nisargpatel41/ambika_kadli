@@ -3,6 +3,8 @@ import SectionTitle from "../Common/SectionTitle/SectionTitle";
 import ContactText from "./ContactText";
 import ContactForm from "./ContactForm";
 import Header from "../Common/Header/Header";
+import disableScroll from "disable-scroll";
+
 import "./ContactPage.css";
 
 class ContactPage extends Component {
@@ -10,6 +12,7 @@ class ContactPage extends Component {
 
   movingToProductsFromNav = (e) => {
     e.preventDefault();
+    disableScroll.off();
 
     this.props.history.push(`/products/${e.target.id}`);
   };

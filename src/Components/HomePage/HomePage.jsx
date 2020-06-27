@@ -5,6 +5,7 @@ import InnerTitle from "../Common/InnerTitle/InnerTitle";
 import ProductsMobileRender from "./ProductsMobileRender/ProductsMobileRender";
 import ProductsDeskRender from "./ProductsDeskRender/ProductsDeskRender";
 import preloader from "./loader.gif";
+import disableScroll from "disable-scroll";
 import "./HomePage.css";
 
 class HomePage extends Component {
@@ -20,7 +21,7 @@ class HomePage extends Component {
 
   movingToProductsFromNav = (e) => {
     e.preventDefault();
-
+    disableScroll.off();
     this.props.history.push(`products/${e.target.id}`);
   };
 

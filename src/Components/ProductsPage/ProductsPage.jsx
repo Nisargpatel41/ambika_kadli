@@ -3,6 +3,8 @@ import axios from "axios";
 import Header from "../Common/Header/Header";
 import ProductBox from "../Common/ProductBox/ProductBox";
 import SectionTitle from "../Common/SectionTitle/SectionTitle";
+import disableScroll from "disable-scroll";
+
 import "./ProductsPage.css";
 
 class ProductsPage extends Component {
@@ -44,7 +46,7 @@ class ProductsPage extends Component {
 
   movingToProductsFromNav = (e) => {
     e.preventDefault();
-
+    disableScroll.off();
     this.props.history.push(`/products/${e.target.id}`);
   };
 
