@@ -32,7 +32,7 @@ class ProductsDeskRender extends Component {
 
       return (
         <ProductBox
-          imgSource={`https://ambika-kadli.herokuapp.com/${product.productImages[1]}`}
+          imgSource={`https://ambika-kadli.herokuapp.com/${product.productImages[0]}`}
           productName={product.productName}
           productWeightOrPrice={productWeightOrPrice}
           classContain={true}

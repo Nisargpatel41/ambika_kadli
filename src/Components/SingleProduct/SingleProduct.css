@@ -60,7 +60,9 @@
 .whatsappShare:focus {
   color: #50cc5c;
 }
-.copyLink {
+.copyLink,
+.copyLink:hover,
+.copyLink:focus {
   color: black;
 }
 .copiedText {

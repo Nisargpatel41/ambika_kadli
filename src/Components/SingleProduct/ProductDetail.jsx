@@ -8,15 +8,21 @@ const ProductDetail = ({ linkValue, productObj, linkCopied, copid }) => {
       return (
         <tr>
           <th scope="row">Price </th>
-          <td>{productObj.productPrice}</td>
+          <td>{`₹ ${productObj.productPrice}`}</td>
         </tr>
       );
     } else {
       return (
-        <tr>
-          <th scope="row">Touch </th>
-          <td>{productObj.productTouch}</td>
-        </tr>
+        <React.Fragment>
+          <tr>
+            <th scope="row">Touch </th>
+            <td>{productObj.productTouch}</td>
+          </tr>
+          <tr>
+            <th scope="row">Weight </th>
+            <td>{productObj.productWeight} gram</td>
+          </tr>
+        </React.Fragment>
       );
     }
   };
@@ -43,11 +49,6 @@ const ProductDetail = ({ linkValue, productObj, linkCopied, copid }) => {
             </tr>
 
             {priceOrTouch()}
-
-            <tr>
-              <th scope="row">Weight </th>
-              <td>{productObj.productWeight} gram</td>
-            </tr>
 
             <tr>
               <th scope="row">Metal </th>

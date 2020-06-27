@@ -6,7 +6,7 @@ import SectionTitle from "../../Common/SectionTitle/SectionTitle";
 import { toast } from "react-toastify";
 
 class AddProduct extends Component {
-  state = { categories: [], selectedFile: null };
+  state = { categories: [], selectedFile: null, isSending: false };
 
   componentWillMount() {
     axios
@@ -28,6 +28,7 @@ class AddProduct extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
+    this.setState({ isSending: true });
 
     const productName = e.target.elements.addProduct.value;
     e.target.elements.addProduct.value = "";
@@ -71,6 +72,8 @@ class AddProduct extends Component {
         },
       })
       .then((result) => {
+        this.setState({ isSending: false });
+
         toast.success("Product Added!");
       });
   };
@@ -79,6 +82,9 @@ class AddProduct extends Component {
     if (!this.props.isAuth) {
       return <Redirect from={this.props.location.pathname} to="/login" />;
     }
+
+    const { isSending } = this.state;
+    const submitBtnValue = isSending ? "Adding Product..." : "Add Product";
 
     const allCategories = this.state.categories.map((category) => {
       return (
@@ -163,9 +169,13 @@ class AddProduct extends Component {
             </div>
 
             <div className="form-group pt-3 ">
-              <button type="submit" className="btn btn-primary ">
-                Add Product
-              </button>
+              <input
+                type="submit"
+                className="btn btn-primary "
+                value={submitBtnValue}
+                disabled={isSending}
+                style={{ height: "2.5em" }}
+              />
               <button
                 className="ml-3 btn btn-secondary"
                 onClick={() => {

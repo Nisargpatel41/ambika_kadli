@@ -74,6 +74,7 @@ class ViewProducts extends Component {
       .then((result) => {
         toast.error("Product Deleted!");
         const deletedProduct = result.data;
+
         const products = this.state.products.filter(
           (p) => p._id !== deletedProduct._id
         );

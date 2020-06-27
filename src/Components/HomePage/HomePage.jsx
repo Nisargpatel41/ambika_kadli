@@ -6,10 +6,15 @@ import ProductsMobileRender from "./ProductsMobileRender/ProductsMobileRender";
 import ProductsDeskRender from "./ProductsDeskRender/ProductsDeskRender";
 import preloader from "./loader.gif";
 import disableScroll from "disable-scroll";
+import axios from "axios";
 import "./HomePage.css";
 
 class HomePage extends Component {
   state = { categories: [], categoryWiseData: {}, preloader: false };
+
+  async componentDidMount() {
+    await axios.put("http://localhost:5000/api/views");
+  }
 
   movingToSingleProduct = (e) => {
     this.props.history.push(`product/${e.currentTarget.id}`);

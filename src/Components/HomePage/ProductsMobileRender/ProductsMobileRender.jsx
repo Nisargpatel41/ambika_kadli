@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Img1 from "../ProductImages/kadli1.jpg";
 import ProductBox from "../../Common/ProductBox/ProductBox";
 import axios from "axios";
 import "./ProductsMobileRender.css";
@@ -66,22 +65,22 @@ class ProductsMobileRender extends Component {
     return (
       <div className="productsMobileRenderMain">
         <div
-          id="carouselExampleControls"
+          id="productsRenderMain"
           className="carousel slide"
           data-ride="carousel"
         >
-          <div className="carousel-inner">{productBoxRender}</div>
+          <div className="carousel-inner">{productBoxRender} </div>
           {/* <a
-            className="carousel-control-prev moveBtn left"
-            href="#carouselExampleIndicators"
+            className="carousel-control-prev slideshowMove left"
+            href="#productsRenderMain"
             role="button"
             data-slide="prev"
           >
             <i className="fa fa-chevron-left leftSpan" aria-hidden="true"></i>
           </a>
           <a
-            className="carousel-control-next moveBtn right"
-            href="#carouselExampleIndicators"
+            className="carousel-control-next slideshowMove right"
+            href="#productsRenderMain"
             role="button"
             data-slide="next"
           >

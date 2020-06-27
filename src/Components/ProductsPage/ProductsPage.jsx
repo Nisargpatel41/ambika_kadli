@@ -8,13 +8,19 @@ import disableScroll from "disable-scroll";
 import "./ProductsPage.css";
 
 class ProductsPage extends Component {
-  state = { products: [], redirect: false, categoryId: "", oldCid: "" };
+  state = {
+    products: [],
+    redirect: false,
+    categoryId: "",
+    oldCid: "",
+    categoryName: "",
+  };
 
   ajaxApiCall() {
     axios
       .get(
-        `https://ambika-kadli.herokuapp.com/api/product/categoryWise/${this.props.match.params.cid}`,
-
+        // `https://ambika-kadli.herokuapp.com/api/product/categoryWise/${this.props.match.params.cid}`,
+        `http://localhost:5000/api/product/categoryWise/${this.props.match.params.cid}`,
         {
           headers: {
             "x-parameter": "productspage",
@@ -22,7 +28,8 @@ class ProductsPage extends Component {
         }
       )
       .then(({ data }) => {
-        this.setState({ products: data });
+        this.setState({ products: data["products"] });
+        this.setState({ categoryName: data["categoryName"] });
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +67,7 @@ class ProductsPage extends Component {
 
       return (
         <ProductBox
-          imgSource={`https://ambika-kadli.herokuapp.com/${product.productImages[1]}`}
+          imgSource={`https://ambika-kadli.herokuapp.com/${product.productImages[0]}`}
           productName={product.productName}
           productWeightOrPrice={productWeightOrPrice}
           classContain={true}
@@ -78,7 +85,7 @@ class ProductsPage extends Component {
           movingToProductsFromNav={this.movingToProductsFromNav}
         />
         <div className="productsPageMain">
-          <SectionTitle title="all products" />
+          <SectionTitle title={`${this.state.categoryName} products`} />
           {productBoxRender}
         </div>
       </React.Fragment>
