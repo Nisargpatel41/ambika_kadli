@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductBox from "../../Common/ProductBox/ProductBox";
 import axios from "axios";
+
 import "./ProductsMobileRender.css";
 
 class ProductsMobileRender extends Component {
@@ -70,8 +71,8 @@ class ProductsMobileRender extends Component {
           data-ride="carousel"
         >
           <div className="carousel-inner">{productBoxRender} </div>
-          {/* <a
-            className="carousel-control-prev slideshowMove left"
+          <a
+            className=" slideshowMove left"
             href="#productsRenderMain"
             role="button"
             data-slide="prev"
@@ -79,13 +80,13 @@ class ProductsMobileRender extends Component {
             <i className="fa fa-chevron-left leftSpan" aria-hidden="true"></i>
           </a>
           <a
-            className="carousel-control-next slideshowMove right"
+            className=" slideshowMove right"
             href="#productsRenderMain"
             role="button"
             data-slide="next"
           >
             <i className="fa fa-chevron-right rightSpan" aria-hidden="true"></i>
-          </a> */}
+          </a>
         </div>
       </div>
     );

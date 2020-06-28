@@ -64,52 +64,39 @@
   display: block;
 }
 
-.carousel-item {
-  z-index: 4 !important;
-}
-
-.moveBtn {
-  height: 30px;
-  width: 30px;
-  /* display: none; */
-  /* margin-top: 7%; */
-  background: #fff !important;
-  color: #ff5a5a !important;
-  color: #77b7ff !important;
-  border: 2px solid #f5f5f5 !important;
-  padding: 0;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 .slideshowMove {
   height: 40px;
   width: 40px;
   background: #fff !important;
   color: #1982f6 !important;
   border: 2px solid #f5f5f5 !important;
-  padding: 0;
   border-radius: 50%;
   cursor: pointer;
-  margin-top: 9em;
+  /* margin-bottom: 2em; */
+  margin-top: -11em;
 }
 
 .left {
+  /* float: right; */
+  /* float: left; */
+  position: absolute;
+  left: 0;
   margin-left: 2%;
 }
 
 .right {
+  /* float: right; */
+  position: absolute;
+  right: 0;
   margin-right: 2%;
 }
 
-/* .left {
-  left: 79%;
-}
-
 .leftSpan {
-  margin-right: 3px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .rightSpan {
-  margin-left: 3px;
-} */
+  margin-left: 12px;
+  margin-top: 10px;
+}

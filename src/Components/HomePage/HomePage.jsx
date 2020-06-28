@@ -13,7 +13,7 @@ class HomePage extends Component {
   state = { categories: [], categoryWiseData: {}, preloader: false };
 
   async componentDidMount() {
-    await axios.put("http://localhost:5000/api/views");
+    await axios.put("https://ambika-kadli.herokuapp.com/api/views");
   }
 
   movingToSingleProduct = (e) => {

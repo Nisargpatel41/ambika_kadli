@@ -19,8 +19,7 @@ class ProductsPage extends Component {
   ajaxApiCall() {
     axios
       .get(
-        // `https://ambika-kadli.herokuapp.com/api/product/categoryWise/${this.props.match.params.cid}`,
-        `http://localhost:5000/api/product/categoryWise/${this.props.match.params.cid}`,
+        `https://ambika-kadli.herokuapp.com/api/product/categoryWise/${this.props.match.params.cid}`,
         {
           headers: {
             "x-parameter": "productspage",
