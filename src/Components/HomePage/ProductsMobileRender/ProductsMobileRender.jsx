@@ -37,6 +37,7 @@ class ProductsMobileRender extends Component {
       });
   }
   render() {
+    const moveBtn = this.state.products.length > 1 ? true : false;
     const productBoxRender = this.state.products.map((productWholeObj) => {
       const onScreen = productWholeObj.onScreen;
       const product = productWholeObj.productObj;
@@ -66,27 +67,37 @@ class ProductsMobileRender extends Component {
     return (
       <div className="productsMobileRenderMain">
         <div
-          id="productsRenderMain"
+          id={`render${this.props.categoryId}`}
           className="carousel slide"
           data-ride="carousel"
         >
           <div className="carousel-inner">{productBoxRender} </div>
-          <a
-            className=" slideshowMove left"
-            href="#productsRenderMain"
-            role="button"
-            data-slide="prev"
-          >
-            <i className="fa fa-chevron-left leftSpan" aria-hidden="true"></i>
-          </a>
-          <a
-            className=" slideshowMove right"
-            href="#productsRenderMain"
-            role="button"
-            data-slide="next"
-          >
-            <i className="fa fa-chevron-right rightSpan" aria-hidden="true"></i>
-          </a>
+          {moveBtn && (
+            <React.Fragment>
+              <a
+                className=" slideshowMove left"
+                href={`#render${this.props.categoryId}`}
+                role="button"
+                data-slide="prev"
+              >
+                <i
+                  className="fa fa-chevron-left leftSpan"
+                  aria-hidden="true"
+                ></i>
+              </a>
+              <a
+                className=" slideshowMove right"
+                href={`#render${this.props.categoryId}`}
+                role="button"
+                data-slide="next"
+              >
+                <i
+                  className="fa fa-chevron-right rightSpan"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </React.Fragment>
+          )}
         </div>
       </div>
     );

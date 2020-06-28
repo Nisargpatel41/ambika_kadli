@@ -42,7 +42,6 @@ class HomePage extends Component {
           <InnerTitle title={category.categoryName} />
           <ProductsMobileRender
             categoryId={category._id}
-            // categoryWiseData={this.state.categoryWiseData}
             movingToSingleProduct={this.movingToSingleProduct}
           />
           <div className="viewBtnDiv">
