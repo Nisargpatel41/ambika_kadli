@@ -19,7 +19,7 @@ const ProductDetail = ({ linkValue, productObj, linkCopied, copid }) => {
       return (
         <tr>
           <th scope="row">Weight </th>
-          <td>{`${productObj.productWeight}`}</td>
+          <td>{`${productObj.productWeight}`} gram</td>
         </tr>
       );
     }
