@@ -40,6 +40,7 @@ class LoginForm extends Component {
   forgotPassword = () => {
     axios
       .get("https://ambika-kadli.herokuapp.com/api/forgot")
+      // .get("http://localhost:5000/api/forgot")
       .then((res) => {
         if (res.data) {
           toast("OTP Sent on Your Mobile!");

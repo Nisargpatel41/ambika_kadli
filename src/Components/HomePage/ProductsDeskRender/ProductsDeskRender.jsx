@@ -7,6 +7,7 @@ class ProductsDeskRender extends Component {
 
   componentWillMount() {
     axios
+      // https://ambika-kadli.herokuapp.com/api/product/categoryWise
       .get(
         `https://ambika-kadli.herokuapp.com/api/product/categoryWise/${this.props.categoryId}`
       )
@@ -24,12 +25,17 @@ class ProductsDeskRender extends Component {
   // }
   render() {
     const productBoxRender = this.state.products.map((product) => {
-      let productWeightOrPrice = `${product.productWeight} gram`;
+      // console.log(product);
+      let productWeightOrPrice = "";
+
+      if (product.productWeight !== "0") {
+        productWeightOrPrice = `${product.productWeight} gram`;
+      }
 
       if (product.productPrice !== 0) {
         productWeightOrPrice = `₹ ${product.productPrice}`;
       }
-
+      // const ImgUrl = "https://ambika-kadli.herokuapp.com";
       return (
         <ProductBox
           imgSource={`https://ambika-kadli.herokuapp.com/${product.productImages[0]}`}

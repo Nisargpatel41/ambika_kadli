@@ -132,7 +132,7 @@ class ViewProducts extends Component {
       countProducts += 1;
       // let productImgSrc;
       // console.log(product);
-
+      // https://ambika-kadli.herokuapp.com
       const productImagesRender = product.productImages.map((productImg) => {
         return (
           <img

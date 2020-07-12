@@ -65,8 +65,11 @@ class AddProduct extends Component {
     data.set("productTouch", productTouch);
     data.set("productPrice", productPrice);
 
+    const URL = "https://ambika-kadli.herokuapp.com/api/product";
+    // const URL = "http://localhost:5000/api/product";
+
     axios
-      .post("https://ambika-kadli.herokuapp.com/api/product", data, {
+      .post(URL, data, {
         headers: {
           "x-auth-token": localStorage.getItem("token"),
         },

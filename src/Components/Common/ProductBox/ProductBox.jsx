@@ -49,6 +49,9 @@ class ProductBox extends Component {
     return (
       <React.Fragment>
         <div className={boxClassName}>
+          {/* <div className="ribbon">
+            <span class="ribbon4">New</span>
+          </div> */}
           {/* <div className="text-center"> */}
           <div className={imageDivClassName}>
             <img

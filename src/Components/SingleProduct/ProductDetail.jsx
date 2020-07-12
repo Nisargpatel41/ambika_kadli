@@ -3,7 +3,7 @@ import SectionTitle from "../Common/SectionTitle/SectionTitle";
 import ShareProduct from "./ShareProduct";
 
 const ProductDetail = ({ linkValue, productObj, linkCopied, copid }) => {
-  const priceOrTouch = () => {
+  const price = () => {
     if (productObj.productPrice !== 0) {
       return (
         <tr>
@@ -11,21 +11,45 @@ const ProductDetail = ({ linkValue, productObj, linkCopied, copid }) => {
           <td>{`₹ ${productObj.productPrice}`}</td>
         </tr>
       );
-    } else {
+    }
+  };
+
+  const weight = () => {
+    if (productObj.productWeight !== "0") {
       return (
-        <React.Fragment>
-          <tr>
-            <th scope="row">Touch </th>
-            <td>{productObj.productTouch}</td>
-          </tr>
-          <tr>
-            <th scope="row">Weight </th>
-            <td>{productObj.productWeight} gram</td>
-          </tr>
-        </React.Fragment>
+        <tr>
+          <th scope="row">Weight </th>
+          <td>{`${productObj.productWeight}`}</td>
+        </tr>
       );
     }
   };
+
+  const touch = () => {
+    if (productObj.productTouch !== 0) {
+      return (
+        <tr>
+          <th scope="row">Touch </th>
+          <td>{` ${productObj.productTouch}`}</td>
+        </tr>
+      );
+    }
+  };
+
+  // else {
+  //   return (
+  //     <React.Fragment>
+  //       <tr>
+  //         <th scope="row">Touch </th>
+  //         <td>{productObj.productTouch}</td>
+  //       </tr>
+  //       <tr>
+  //         <th scope="row">Weight </th>
+  //         <td>{productObj.productWeight} gram</td>
+  //       </tr>
+  //     </React.Fragment>
+  //   );
+  // }
   return (
     <div className="productDetailMain">
       <ShareProduct
@@ -48,7 +72,9 @@ const ProductDetail = ({ linkValue, productObj, linkCopied, copid }) => {
               <td>{productObj.categoryName}</td>
             </tr>
 
-            {priceOrTouch()}
+            {price()}
+            {touch()}
+            {weight()}
 
             <tr>
               <th scope="row">Metal </th>

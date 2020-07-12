@@ -132,6 +132,39 @@
   display: block;
 }
 
+.ribbon {
+  position: relative;
+}
+.ribbon4 {
+  position: absolute;
+  top: 15px;
+  padding: 8px 10px;
+  background: #00b3ed;
+  box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+.ribbon4:before,
+.ribbon4:after {
+  content: "";
+  position: absolute;
+}
+.ribbon4:before {
+  width: 7px;
+  height: 100%;
+  top: 0;
+  left: -6.5px;
+  padding: 0 0 7px;
+  background: inherit;
+  border-radius: 5px 0 0 5px;
+}
+.ribbon4:after {
+  width: 5px;
+  height: 5px;
+  bottom: -5px;
+  left: -4.5px;
+  background: lightblue;
+  border-radius: 5px 0 0 5px;
+}
+
 @media screen and (min-width: 480px) {
   .box {
     height: 16em;
@@ -225,5 +258,52 @@
 
   .weightInline {
     font-size: 1.1em;
+  }
+  .ribbon {
+    position: relative;
+  }
+  .wrap {
+    width: 100%;
+    height: 140px;
+    position: absolute;
+    top: -20px;
+    left: 8px;
+    overflow: hidden;
+  }
+  .wrap:before,
+  .wrap:after {
+    content: "";
+    position: absolute;
+  }
+  .wrap:before {
+    width: 40px;
+    height: 8px;
+    right: 100px;
+    background: #4d6530;
+    border-radius: 8px 8px 0px 0px;
+  }
+  .wrap:after {
+    width: 8px;
+    height: 40px;
+    right: 0px;
+    top: 100px;
+    background: #4d6530;
+    border-radius: 0px 8px 8px 0px;
+  }
+  .ribbon6 {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 30px;
+    right: -50px;
+    z-index: 2;
+    overflow: hidden;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border: 1px dashed;
+    box-shadow: 0 0 0 3px #57dd43, 0px 21px 5px -18px rgba(0, 0, 0, 0.6);
+    background: #57dd43;
+    text-align: center;
   }
 }

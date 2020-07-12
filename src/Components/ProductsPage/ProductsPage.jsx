@@ -58,12 +58,15 @@ class ProductsPage extends Component {
 
   render() {
     const productBoxRender = this.state.products.map((product) => {
-      let productWeightOrPrice = `${product.productWeight} gram`;
+      let productWeightOrPrice = "";
+
+      if (product.productWeight !== "0") {
+        productWeightOrPrice = `${product.productWeight} gram`;
+      }
 
       if (product.productPrice !== 0) {
         productWeightOrPrice = `₹ ${product.productPrice}`;
       }
-
       return (
         <ProductBox
           imgSource={`https://ambika-kadli.herokuapp.com/${product.productImages[0]}`}

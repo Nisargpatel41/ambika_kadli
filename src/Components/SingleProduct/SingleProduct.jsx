@@ -19,6 +19,7 @@ class SingleProduct extends Component {
     axios
       .get(
         `https://ambika-kadli.herokuapp.com/api/product/${this.props.match.params.pid}`
+        // `http://localhost:5000/api/product/${this.props.match.params.pid}`
       )
       .then((result) => {
         const productObj = result.data;

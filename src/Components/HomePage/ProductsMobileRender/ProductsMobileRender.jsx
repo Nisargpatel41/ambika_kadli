@@ -43,13 +43,15 @@ class ProductsMobileRender extends Component {
       const product = productWholeObj.productObj;
 
       const activeClass = onScreen ? "active" : "";
+      let productWeightOrPrice = "";
 
-      let productWeightOrPrice = `${product.productWeight} gram`;
+      if (product.productWeight !== "0") {
+        productWeightOrPrice = `${product.productWeight} gram`;
+      }
 
       if (product.productPrice !== 0) {
         productWeightOrPrice = `₹ ${product.productPrice}`;
       }
-
       return (
         <div className={`carousel-item ${activeClass}`} key={product._id}>
           <ProductBox
