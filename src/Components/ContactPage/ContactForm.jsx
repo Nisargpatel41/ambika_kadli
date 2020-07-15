@@ -36,7 +36,7 @@ class ContactForm extends Component {
       }),
     userMobile: Joi.string()
       .trim()
-      .regex(/^[0-9]*$/)
+      .regex(/^[6-9]\d{9}$/)
       .min(10)
       .max(10)
       .required()
